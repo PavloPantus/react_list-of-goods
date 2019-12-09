@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Select = (props) => {
   const options = [];
 
-  for (let i = 1; i < 11; i = +1) {
+  for (let i = 1; i < 11; i += 1) {
     options.push(<option key={i} value={i}>{i}</option>);
   }
 
