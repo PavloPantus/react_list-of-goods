@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Goodslist = ({ goods }) => (
-  <ul className="goodslist">
+  <ul className="goods-list">
     {goods.map(good => <li key={good} className="good">{good}</li>)}
   </ul>
 );

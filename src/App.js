@@ -18,25 +18,25 @@ const goodsFromServer = [
 
 class App extends React.Component {
   state = {
-    button_started: true,
+    buttonStarted: true,
     goods: [...goodsFromServer],
     valueOfSelect: 1,
   }
 
   start = () => {
-    this.setState({ button_started: false });
+    this.setState({ buttonStarted: false });
   }
 
   reverse = () => {
     this.setState(
-      prevState => ({ goods: prevState.goods.reverse() })
+      prevState => ({ goods: { ...prevState }.goods.reverse() })
     );
   }
 
   sortAlphabetically = () => {
     this.setState(
       prevState => ({
-        goods: prevState.goods.sort(
+        goods: { ...prevState }.goods.sort(
           (good, nextgood) => good.localeCompare(nextgood)
         ),
       })
@@ -53,7 +53,7 @@ class App extends React.Component {
   sortByLength = () => {
     this.setState(
       prevState => ({
-        goods: prevState.goods.sort(
+        goods: { ...prevState }.goods.sort(
           (good, nextgood) => (good.length > nextgood.length ? 1 : -1)
         ),
       })
@@ -71,16 +71,18 @@ class App extends React.Component {
   }
 
   render() {
+    const { buttonStarted, valueOfSelect, goods } = this.state;
+
     return (
       <div className="App">
         <h1>Goods 1</h1>
-        {this.state.button_started ? (
+        {buttonStarted ? (
           <button
             className="button button_start"
             onClick={this.start}
             type="button"
           >
-Start
+            Start
           </button>
         ) : (
           <>
@@ -118,12 +120,12 @@ Start
               </button>
 
               <Select
-                value={this.state.valueOfSelect}
+                value={valueOfSelect}
                 filterByLength={this.filterByLength}
               />
 
             </section>
-            <GoodsList goods={this.state.goods} />
+            <GoodsList goods={goods} />
           </>
         )
         }
