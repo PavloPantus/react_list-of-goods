@@ -1,0 +1,47 @@
+* {
+  transition: all 1.3s;
+}
+
+.goods-list {
+  list-style: none;
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.good {
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.good:nth-child(odd) {
+  background-color: rgb(241, 247, 240);
+}
+
+.controls {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  background-color: aquamarine;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-right: 20px;
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: burlywood;
+  }
+
+  &:focus {
+    transform: scale(1.2);
+  }
+
+  &_reset {
+    background-color: red;
+  }
+}
+
